@@ -115,6 +115,20 @@ namespace CSETWeb_Api.BusinessLogic.ReportEngine
 
         }
 
+        public List<MatRelevantAnswers> getAnsweredQuestionList()
+        {
+            List<BasicReportData.RequirementControl> controls = new List<BasicReportData.RequirementControl>();
+            //select* from ANSWER a
+            //join MATURITY_QUESTIONS q on a.Question_Or_Requirement_Id = q.Mat_Question_Id
+            //where a.Assessment_Id = 2357 and a.question_type = 'Maturity' and a.Answer_Text = 'N'
+            using (var db = new CSET_Context())
+            {
+                var maturityDomains = new List<MatRelevantAnswers>();
+
+                return maturityDomains;
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>

@@ -33,7 +33,7 @@ import { ACETService } from '../../services/acet.service';
   styleUrls: ['../reports.scss', '../acet-reports.scss']
 })
 export class AcetAnsweredQuestionsComponent implements OnInit {
-  response: any = null;
+  response: any = {};
 
   constructor(
     public reportSvc: ReportService,
@@ -45,9 +45,10 @@ export class AcetAnsweredQuestionsComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle("Answered Questions Report - ACET");
 
-    this.acetSvc.getAssessmentInfromation().subscribe(
+    this.acetSvc.getAnsweredQuestions().subscribe(
       (r: any) => {
-        this.response = r;
+        //this.response = r;
+        console.log(r)
 
         ///// TEMPORARY DUMMY RESPONSE DATA ////////
         this.response.AnsweredQuestions = {
@@ -62,15 +63,15 @@ export class AcetAnsweredQuestionsComponent implements OnInit {
                   QuestionText: "Designated members of management are held accountable by the board or an appropriate board committee for implementing and managing the information security and business continuity programs.",
                   MaturityLevel: "B",
                   Comments: "Yes"
-                }, {
+                  }, {
                   Title: "Stmt 2",
                   QuestionText: "Information security risks are discussed in management meetings when prompted by highly visible cyber events or regulatory alerts.",
                   MaturityLevel: "B",
                   Comments: "Yes"
-                }
+                  }
                 ]
               }]
-            }, {
+              }, {
               Title: "Risk Management",
               Components: [{
                 Title: "Strategy / Policies",
@@ -81,7 +82,7 @@ export class AcetAnsweredQuestionsComponent implements OnInit {
                   Comments: "No"
                 }
                 ]
-              }, {
+                }, {
                 Title: "IT Asset Management",
                 Questions: [{
                   Title: "Stmt 48",
@@ -113,7 +114,7 @@ export class AcetAnsweredQuestionsComponent implements OnInit {
             ]
           }]
         };
-
+        console.log(this.response)
 
       },
       error => console.log('Assessment Infromation Error: ' + (<Error>error).message)
