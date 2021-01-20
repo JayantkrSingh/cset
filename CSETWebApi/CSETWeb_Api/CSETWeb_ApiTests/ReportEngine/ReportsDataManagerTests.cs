@@ -17,7 +17,15 @@ namespace CSETWeb_Api.BusinessLogic.ReportEngine.Tests
             ReportsDataManager dataManager = new ReportsDataManager(2357);
             var stuff = dataManager.getACETDeficiences();
             Assert.IsTrue(stuff.Count > 0);
-            
+
+        }
+
+        [TestMethod()]
+        public void getAnsweredQuestionListTest()
+        {
+            ReportsDataManager dataManager = new ReportsDataManager(2357);
+            var stuff = dataManager.getAnsweredQuestionList();
+            Assert.IsTrue(stuff.Count > 0);
         }
     }
 }

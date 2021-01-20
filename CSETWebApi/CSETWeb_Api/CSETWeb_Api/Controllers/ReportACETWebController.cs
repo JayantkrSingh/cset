@@ -74,8 +74,7 @@ namespace CSETWeb_Api.Controllers
             int assessmentId = Auth.AssessmentForUser();
             ReportsDataManager reportsDataManager = new ReportsDataManager(assessmentId);
             ACETReportData data = new ACETReportData();
-            // Create new q for getting data
-            data.MarkedForReviewList = reportsDataManager.getAnsweredQuestionList();
+            //data.MatAnsweredQuestions = reportsDataManager.getAnsweredQuestionList();
             return data;
         }
 

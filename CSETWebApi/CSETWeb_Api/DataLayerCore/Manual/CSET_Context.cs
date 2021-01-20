@@ -544,6 +544,28 @@ namespace DataLayerCore.Model
                          myrval = myrval2.Select(x => x.Requirement_Id).ToList();
                      });
             return myrval;
-        }       
+        }
+
+        /// <summary>
+        /// Executes stored procedure usp_GetRankedQuestions.
+        /// </summary>
+        /// <param name="model_id"></param>
+        /// <returns></returns>
+        public virtual IList<GetMaturityGroupings_Result> getMaturityGroupings_Result(Nullable<int> model_id)
+        {
+            if (! model_id.HasValue)
+                throw new ApplicationException("parameters may not be null");
+
+            IList<GetMaturityGroupings_Result> myrval = null;
+            this.LoadStoredProc("GetMaturityGroupings")
+                     .WithSqlParam("model_id", model_id)
+
+                     .ExecuteStoredProc((handler) =>
+                     {
+                         myrval = handler.ReadToList<GetMaturityGroupings_Result>();
+                     });
+            return myrval;
+        }
+
     }
 }
