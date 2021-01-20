@@ -1,6 +1,6 @@
 *.log
 dist
-
+.vs/
 
 /CSETWebApi/CSETWeb_Api/DataLayerCore/bin/Release
 /CSETWebApi/CSETWeb_Api/DataLayerCore/bin/Debug
